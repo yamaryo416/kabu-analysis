@@ -1,0 +1,68 @@
+# kabu-analysis 📈
+
+日本株を毎日自動分析し、**セクター別トップ3の買い候補**を提示するツールです。
+
+10倍株(テンバガー)を狙う投機ではなく、**1〜5年の保有で年率10〜50%の資産形成**を目指す、
+手堅いトレンドフォロー型の分析を行います。
+
+## 特徴
+
+- **対象**: TOPIX-17分類をベースにした13セクター・約100の大型・高流動性銘柄
+- **複合スコアリング(100点満点)**
+  - トレンド 40%: 移動平均線の並び(パーフェクトオーダー)、200日線の傾き、6/12ヶ月モメンタム、52週高値への近さ、MACD
+  - ファンダメンタルズ 40%: ROE、営業利益率、増収率、増益率、配当利回り、バリュエーションガード(PERが割高すぎる銘柄は減点)
+  - リスク 20%: 年率ボラティリティ、直近1年の最大ドローダウン(低いほど高評価)
+- **売買シグナル**: トレンドが強く、かつ短期的に過熱していない「押し目」で買いシグナルが点灯
+  - `買い候補(押し目)` / `買い候補(トレンド)` / `監視(過熱・押し目待ち)` / `監視` / `見送り`
+- **毎日自動実行**: GitHub Actionsが平日16:30 JST(大引け後)に分析し、レポートをコミット
+- **出力**: HTML(ダークモード対応)・Markdown・JSON
+
+## 使い方
+
+```bash
+pip install -r requirements.txt
+
+# 実データで分析(Yahoo Financeから取得)
+python -m kabu_analysis
+
+# ネットワーク不要のデモモード(合成データ)
+python -m kabu_analysis --demo
+
+# セクターを絞る / 表示数を変える
+python -m kabu_analysis --sectors 銀行 商社・卸売 --top 3
+
+# セクター一覧
+python -m kabu_analysis --list-sectors
+```
+
+レポートは `reports/latest.html`(および日付付きHTML、`latest.md`、`latest.json`)に出力されます。
+
+## 毎日の自動分析
+
+`.github/workflows/daily-analysis.yml` が平日16:30 JSTに自動実行し、
+最新レポートを `reports/` にコミットします。GitHubの Actions タブから手動実行(workflow_dispatch)も可能です。
+
+## テスト
+
+```bash
+pip install -r requirements-dev.txt
+python -m pytest tests/ -v
+```
+
+## プロジェクト構成
+
+```
+kabu_analysis/
+├── universe.py    # セクター別の対象銘柄リスト
+├── data.py        # yfinanceによる株価・財務データ取得(キャッシュ付き)
+├── indicators.py  # テクニカル指標(SMA/RSI/MACD/モメンタム/ボラティリティ等)
+├── scoring.py     # 複合スコアリングと売買シグナル判定
+├── report.py      # HTML/Markdown/JSONレポート生成
+├── demo.py        # 合成データによるデモモード
+└── __main__.py    # CLIエントリポイント
+```
+
+## 免責事項
+
+本ツールは公開データに基づく機械的な分析であり、投資勧誘や利益の保証ではありません。
+投資の最終判断はご自身の責任で行ってください。
