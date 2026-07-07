@@ -134,6 +134,29 @@ def build_html(analyses: list[StockAnalysis], top_n: int = 3, demo: bool = False
     heat_html = f"""<table class="picks"><thead><tr><th>セクター</th><th>平均スコア</th><th>平均12ヶ月リターン</th><th>買い候補数</th></tr></thead>
     <tbody>{heat_rows}</tbody></table>"""
 
+    all_rows = "".join(
+        f"<tr data-search='{escape(a.name)} {a.ticker.replace('.T', '')} {escape(a.sector)} {escape(a.signal)}'>"
+        f"<td>{a.ticker.replace('.T', '')}</td><td>{escape(a.name)}</td><td>{escape(a.sector)}</td>"
+        f"<td class='num'>{a.composite_score:.0f}</td>"
+        f"<td class='num'>{a.trend_score:.0f}</td><td class='num'>{a.fundamental_score:.0f}</td><td class='num'>{a.risk_score:.0f}</td>"
+        f"<td><span class='signal {_SIGNAL_CLASS.get(a.signal, 'watch')}'>{escape(a.signal)}</span></td></tr>"
+        for a in sorted(analyses, key=lambda x: x.composite_score, reverse=True)
+    )
+    search_html = f"""
+    <input type="search" id="stock-search" placeholder="銘柄名・コード・セクター・シグナルで検索 (例: トヨタ / 7203 / 銀行 / 買い候補)">
+    <div style="overflow-x:auto">
+    <table class="picks" id="all-stocks"><thead><tr><th>コード</th><th>銘柄</th><th>セクター</th><th>総合</th><th>T</th><th>F</th><th>R</th><th>シグナル</th></tr></thead>
+    <tbody>{all_rows}</tbody></table>
+    </div>
+    <script>
+    document.getElementById('stock-search').addEventListener('input', function () {{
+      var q = this.value.trim().toLowerCase();
+      document.querySelectorAll('#all-stocks tbody tr').forEach(function (tr) {{
+        tr.style.display = !q || tr.dataset.search.toLowerCase().includes(q) ? '' : 'none';
+      }});
+    }});
+    </script>"""
+
     sector_sections = ""
     for sector, items in sectors.items():
         cards = "".join(_stock_card(a, i + 1) for i, a in enumerate(items))
@@ -194,6 +217,8 @@ def build_html(analyses: list[StockAnalysis], top_n: int = 3, demo: bool = False
   td.num {{ font-weight:700; }}
   .disclaimer {{ margin-top:40px; padding:14px; border:1px solid var(--line); border-radius:8px;
                 color:var(--muted); font-size:.8rem; }}
+  #stock-search {{ width:100%; padding:10px 14px; margin-bottom:12px; font-size:.95rem;
+                  border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--text); }}
 </style>
 </head>
 <body>
@@ -205,6 +230,8 @@ def build_html(analyses: list[StockAnalysis], top_n: int = 3, demo: bool = False
   {picks_html}
   <h2>セクター別の地合い</h2>
   {heat_html}
+  <h2>全銘柄検索(分析対象 {len(analyses)}銘柄)</h2>
+  {search_html}
   {sector_sections}
   <div class="disclaimer">{DISCLAIMER}</div>
 </div>

@@ -37,7 +37,7 @@ def fetch_price_history(tickers: list[str], period: str = "2y") -> dict[str, pd.
     result: dict[str, pd.DataFrame] = {}
     for ticker in tickers:
         try:
-            hist = df[ticker] if len(tickers) > 1 else df
+            hist = df[ticker] if isinstance(df.columns, pd.MultiIndex) else df
             close = hist["Close"].dropna()
         except KeyError:
             logger.warning("株価取得失敗: %s", ticker)
@@ -90,6 +90,7 @@ def _extract_fundamentals(info: dict) -> dict:
         fcf_yield = free_cashflow / market_cap
 
     return {
+        "name": info.get("longName") or info.get("shortName"),
         "per": info.get("trailingPE"),
         "forward_per": info.get("forwardPE"),
         "pbr": info.get("priceToBook"),

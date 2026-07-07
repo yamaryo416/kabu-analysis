@@ -24,6 +24,8 @@ def test_build_html_contains_stocks():
     assert "<!DOCTYPE html>" in html
     assert "デモモード" in html
     assert analyses[0].name in html
+    assert 'id="stock-search"' in html  # 全銘柄検索ボックス
+    assert html.count("data-search=") == len(analyses)
 
 
 def test_build_markdown_and_json():

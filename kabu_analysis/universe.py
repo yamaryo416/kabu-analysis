@@ -192,3 +192,16 @@ def get_universe(sectors: list[str] | None = None) -> list[Stock]:
 
 def all_sectors() -> list[str]:
     return list(_UNIVERSE.keys())
+
+
+def find_stock(query: str) -> Stock | None:
+    """コード(例: "7203"/"7203.T")または銘柄名の部分一致でユニバースを検索。"""
+    q = query.strip()
+    code = q.upper().removesuffix(".T")
+    for stock in get_universe():
+        if stock.ticker.removesuffix(".T") == code:
+            return stock
+    for stock in get_universe():
+        if q in stock.name:
+            return stock
+    return None
