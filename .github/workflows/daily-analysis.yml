@@ -8,6 +8,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: daily-analysis
@@ -37,7 +39,24 @@ jobs:
           git add reports/
           if git diff --cached --quiet; then
             echo "No changes to commit"
-            exit 0
+          else
+            git commit -m "chore: daily analysis report $(date +%Y-%m-%d)"
+            git push
           fi
-          git commit -m "chore: daily analysis report $(date +%Y-%m-%d)"
-          git push
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: reports
+
+  # GitHub Pagesへレポートを公開 (Settings > Pages > Source: GitHub Actions を一度有効化すると動く)
+  deploy-pages:
+    needs: analyze
+    runs-on: ubuntu-latest
+    continue-on-error: true # Pages未有効でも日次分析自体は成功扱いにする
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

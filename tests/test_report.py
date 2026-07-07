@@ -42,4 +42,5 @@ def test_write_reports(tmp_path: Path):
     assert (tmp_path / "latest.html").exists()
     assert (tmp_path / "latest.md").exists()
     assert (tmp_path / "latest.json").exists()
-    assert len(paths) == 4
+    assert (tmp_path / "index.html").exists()
+    assert len(paths) == 5

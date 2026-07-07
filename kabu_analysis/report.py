@@ -250,6 +250,7 @@ def write_reports(
     paths = []
     for name, content in [
         ("latest.html", html),
+        ("index.html", html),  # GitHub Pages用
         (f"{date_str}.html", html),
         ("latest.md", md),
         ("latest.json", js),
