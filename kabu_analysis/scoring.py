@@ -60,49 +60,69 @@ def trend_score(t: dict) -> tuple[float, list[str]]:
     reasons: list[str] = []
     close, sma25, sma75, sma200 = t.get("close"), t.get("sma25"), t.get("sma75"), t.get("sma200")
 
-    # 移動平均線の並び (最大25点)
+    # 移動平均線の並び (最大20点)
     if all(v is not None for v in (close, sma25, sma75, sma200)):
         if close > sma25 > sma75 > sma200:
-            score += 25
+            score += 20
             reasons.append("株価>25日>75日>200日線のパーフェクトオーダー(強い上昇トレンド)")
         elif close > sma75 > sma200:
-            score += 18
+            score += 14
             reasons.append("株価が75日・200日線の上で推移(中期上昇トレンド)")
         elif close > sma200:
-            score += 10
+            score += 8
             reasons.append("株価が200日線の上で推移(長期トレンドは維持)")
 
-    # 200日線の傾き (最大10点)
+    # 200日線の傾き (最大8点)
     s200_slope = t.get("sma200_slope")
     if s200_slope is not None and s200_slope > 0:
-        score += _scale(s200_slope, 0.0, 0.05, 10)
+        score += _scale(s200_slope, 0.0, 0.05, 8)
         if s200_slope > 0.01:
             reasons.append("200日移動平均線が右肩上がり")
 
-    # 12ヶ月モメンタム (最大25点)
+    # 12ヶ月モメンタム (最大18点)
     mom12 = t.get("mom_12m")
     if mom12 is not None:
-        score += _scale(mom12, -0.20, 0.40, 25)
+        score += _scale(mom12, -0.20, 0.40, 18)
         if mom12 > 0.15:
             reasons.append(f"直近12ヶ月リターン +{mom12 * 100:.0f}%と中期モメンタム良好")
 
-    # 6ヶ月モメンタム (最大15点)
+    # 6ヶ月モメンタム (最大10点)
     mom6 = t.get("mom_6m")
     if mom6 is not None:
-        score += _scale(mom6, -0.15, 0.30, 15)
+        score += _scale(mom6, -0.15, 0.30, 10)
 
-    # 52週高値への近さ (最大15点)
+    # 52週高値への近さ (最大12点)
     dist = t.get("dist_52w_high")
     if dist is not None:
-        score += _scale(dist, -0.25, 0.0, 15)
+        score += _scale(dist, -0.25, 0.0, 12)
         if dist > -0.05:
             reasons.append("52週高値圏で推移(高値更新の期待)")
 
-    # MACDヒストグラム (最大10点)
+    # MACDヒストグラム (最大8点)
     macd_hist = t.get("macd_hist")
     if macd_hist is not None and macd_hist > 0 and close:
-        score += 10
+        score += 8
         reasons.append("MACDが買い優勢")
+
+    # 対市場相対力: 日経平均に対する12ヶ月超過リターン (最大16点、データ欠損時は中立8点)
+    rel12 = t.get("rel_12m")
+    if rel12 is None:
+        score += 8.0
+    else:
+        score += _scale(rel12, -0.10, 0.20, 16)
+        if rel12 >= 0.10:
+            reasons.append(f"日経平均を12ヶ月で+{rel12 * 100:.0f}%上回る相対的な強さ")
+        elif rel12 <= -0.10:
+            pass  # 市場に対する劣後はスコア減点のみで理由には出さない
+
+    # 出来高トレンド: 20日平均/60日平均 (最大8点、欠損時は中立4点)
+    vol_trend = t.get("volume_trend")
+    if vol_trend is None:
+        score += 4.0
+    else:
+        score += _scale(vol_trend, 0.85, 1.30, 8)
+        if vol_trend >= 1.20:
+            reasons.append(f"出来高が増加傾向(直近20日は60日平均の{vol_trend:.1f}倍)で資金流入")
 
     return min(score, 100.0), reasons
 
@@ -118,9 +138,9 @@ def fundamental_score(f: dict) -> tuple[float, list[str], list[str]]:
 
     roe = f.get("roe")  # 例 0.12 = 12%
     if roe is None:
-        score += 12.5
+        score += 9.0
     else:
-        score += _scale(roe, 0.0, 0.15, 25)
+        score += _scale(roe, 0.0, 0.15, 18)
         if roe >= 0.10:
             reasons.append(f"ROE {roe * 100:.1f}%と資本効率が高い")
         elif roe < 0.05:
@@ -128,17 +148,17 @@ def fundamental_score(f: dict) -> tuple[float, list[str], list[str]]:
 
     margin = f.get("operating_margin")
     if margin is None:
-        score += 7.5
+        score += 5.0
     else:
-        score += _scale(margin, 0.0, 0.15, 15)
+        score += _scale(margin, 0.0, 0.15, 10)
         if margin >= 0.12:
             reasons.append(f"営業利益率 {margin * 100:.1f}%と収益性が高い")
 
     rev_g = f.get("revenue_growth")
     if rev_g is None:
-        score += 7.5
+        score += 5.0
     else:
-        score += _scale(rev_g, 0.0, 0.15, 15)
+        score += _scale(rev_g, 0.0, 0.15, 10)
         if rev_g >= 0.08:
             reasons.append(f"増収率 +{rev_g * 100:.1f}%と成長継続")
         elif rev_g < 0:
@@ -146,9 +166,9 @@ def fundamental_score(f: dict) -> tuple[float, list[str], list[str]]:
 
     earn_g = f.get("earnings_growth")
     if earn_g is None:
-        score += 7.5
+        score += 6.0
     else:
-        score += _scale(earn_g, 0.0, 0.20, 15)
+        score += _scale(earn_g, 0.0, 0.20, 12)
         if earn_g >= 0.10:
             reasons.append(f"増益率 +{earn_g * 100:.1f}%")
         elif earn_g < 0:
@@ -156,26 +176,59 @@ def fundamental_score(f: dict) -> tuple[float, list[str], list[str]]:
 
     dividend = f.get("dividend_yield")
     if dividend is None:
-        score += 5.0
+        score += 4.0
     else:
-        score += _scale(dividend, 0.0, 0.03, 10)
+        score += _scale(dividend, 0.0, 0.03, 8)
         if dividend >= 0.03:
             reasons.append(f"配当利回り {dividend * 100:.2f}%")
 
-    # バリュエーションガード (最大20点): 高すぎるPERは減点
+    # バリュエーションガード (最大16点): 高すぎるPERは減点
     per = f.get("per")
     if per is None:
-        score += 10.0
+        score += 8.0
     elif per <= 0:
         score += 0.0
         cautions.append("赤字(PER算出不可)")
     elif per <= 25:
-        score += 20.0
+        score += 16.0
         reasons.append(f"PER {per:.1f}倍と割高感なし")
     elif per <= 40:
-        score += 10.0
+        score += 8.0
     else:
         cautions.append(f"PER {per:.1f}倍と割高(期待先行に注意)")
+
+    # 財務健全性: 負債資本倍率 D/E (最大10点、% 表記)
+    dte = f.get("debt_to_equity")
+    if dte is None:
+        score += 5.0
+    else:
+        score += _scale(-dte, -200.0, -50.0, 10)
+        if dte <= 50:
+            reasons.append(f"D/E {dte:.0f}%と財務健全")
+        elif dte >= 200:
+            cautions.append(f"D/E {dte:.0f}%と負債依存度が高い")
+
+    # フリーキャッシュフロー利回り (最大8点)
+    fcf = f.get("fcf_yield")
+    if fcf is None:
+        score += 4.0
+    else:
+        score += _scale(fcf, 0.0, 0.06, 8)
+        if fcf >= 0.05:
+            reasons.append(f"FCF利回り {fcf * 100:.1f}%と現金創出力が高い")
+        elif fcf < 0:
+            cautions.append("フリーキャッシュフローがマイナス")
+
+    # アナリスト評価: 目標株価との乖離 (最大8点)
+    upside = f.get("target_upside")
+    if upside is None:
+        score += 4.0
+    else:
+        score += _scale(upside, 0.0, 0.25, 8)
+        if upside >= 0.15:
+            reasons.append(f"アナリスト目標株価まで+{upside * 100:.0f}%の余地")
+        elif upside < -0.05:
+            cautions.append("株価がアナリスト目標を上回っている(織り込み済みの可能性)")
 
     return min(score, 100.0), reasons, cautions
 
@@ -250,6 +303,12 @@ def analyze_stock(
     technicals: dict,
     fundamentals: dict,
 ) -> StockAnalysis:
+    # アナリスト目標株価との乖離を事前計算してスコアリングに渡す
+    fundamentals = dict(fundamentals)
+    target, close = fundamentals.get("target_price"), technicals.get("close")
+    if target and close:
+        fundamentals["target_upside"] = target / close - 1
+
     t_score, t_reasons = trend_score(technicals)
     f_score, f_reasons, f_cautions = fundamental_score(fundamentals)
     r_score, r_reasons, r_cautions = risk_score(technicals)

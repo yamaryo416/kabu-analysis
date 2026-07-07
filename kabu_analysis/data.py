@@ -17,8 +17,11 @@ CACHE_DIR = Path("data/cache")
 FUNDAMENTALS_TTL_SEC = 20 * 60 * 60  # 20時間(日次実行で再利用しない程度)
 
 
-def fetch_price_history(tickers: list[str], period: str = "2y") -> dict[str, pd.Series]:
-    """各銘柄の調整後終値Seriesを返す。取得失敗銘柄は含まれない。"""
+BENCHMARK_TICKER = "^N225"  # 相対力の基準となる日経平均
+
+
+def fetch_price_history(tickers: list[str], period: str = "2y") -> dict[str, pd.DataFrame]:
+    """各銘柄のOHLCV DataFrame (Close/Volume) を返す。取得失敗銘柄は含まれない。"""
     import yfinance as yf
 
     logger.info("株価データ取得中: %d銘柄 (期間: %s)", len(tickers), period)
@@ -31,20 +34,35 @@ def fetch_price_history(tickers: list[str], period: str = "2y") -> dict[str, pd.
         threads=True,
         progress=False,
     )
-    result: dict[str, pd.Series] = {}
+    result: dict[str, pd.DataFrame] = {}
     for ticker in tickers:
         try:
-            close = df[ticker]["Close"] if len(tickers) > 1 else df["Close"]
+            hist = df[ticker] if len(tickers) > 1 else df
+            close = hist["Close"].dropna()
         except KeyError:
             logger.warning("株価取得失敗: %s", ticker)
             continue
-        close = close.dropna()
         if len(close) < 60:
             logger.warning("データ不足のためスキップ: %s (%d日分)", ticker, len(close))
             continue
-        result[ticker] = close
+        result[ticker] = hist[["Close", "Volume"]].dropna(subset=["Close"])
     logger.info("株価取得完了: %d/%d銘柄", len(result), len(tickers))
     return result
+
+
+def fetch_benchmark(period: str = "2y") -> pd.Series | None:
+    """ベンチマーク(日経平均)の終値Series。取得失敗時はNone(相対力は無効化)。"""
+    import yfinance as yf
+
+    try:
+        hist = yf.download(BENCHMARK_TICKER, period=period, interval="1d", auto_adjust=True, progress=False)
+        close = hist["Close"].dropna()
+        if isinstance(close, pd.DataFrame):  # 単一銘柄でも列がMultiIndexになる場合がある
+            close = close.iloc[:, 0]
+        return close if len(close) >= 60 else None
+    except Exception as e:
+        logger.warning("ベンチマーク取得失敗: %s", e)
+        return None
 
 
 def _load_cache(path: Path) -> dict | None:
@@ -64,6 +82,13 @@ def _extract_fundamentals(info: dict) -> dict:
     # yfinanceのバージョンにより % 表記(3.2)と小数表記(0.032)が混在するため補正
     if dividend_yield is not None and dividend_yield > 0.5:
         dividend_yield = dividend_yield / 100
+
+    market_cap = info.get("marketCap")
+    free_cashflow = info.get("freeCashflow")
+    fcf_yield = None
+    if market_cap and free_cashflow is not None:
+        fcf_yield = free_cashflow / market_cap
+
     return {
         "per": info.get("trailingPE"),
         "forward_per": info.get("forwardPE"),
@@ -73,7 +98,11 @@ def _extract_fundamentals(info: dict) -> dict:
         "revenue_growth": info.get("revenueGrowth"),
         "earnings_growth": info.get("earningsGrowth"),
         "dividend_yield": dividend_yield,
-        "market_cap": info.get("marketCap"),
+        "market_cap": market_cap,
+        "debt_to_equity": info.get("debtToEquity"),  # % 表記 (例 85.3)
+        "fcf_yield": fcf_yield,
+        "target_price": info.get("targetMeanPrice"),
+        "recommendation": info.get("recommendationMean"),  # 1(強気買い)〜5(売り)
     }
 
 

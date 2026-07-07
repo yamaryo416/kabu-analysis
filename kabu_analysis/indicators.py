@@ -80,7 +80,31 @@ def slope(series: pd.Series, lookback_days: int = 20) -> float | None:
     return float(s.iloc[-1] / past - 1)
 
 
-def compute_technicals(close: pd.Series) -> dict[str, float | None]:
+def relative_strength(close: pd.Series, benchmark: pd.Series, months: int) -> float | None:
+    """ベンチマーク(TOPIX/日経平均等)に対する超過リターン。"""
+    own = momentum(close, months)
+    bench = momentum(benchmark, months) if benchmark is not None else None
+    if own is None or bench is None:
+        return None
+    return own - bench
+
+
+def volume_trend(volume: pd.Series, short: int = 20, long: int = 60) -> float | None:
+    """出来高の短期平均/長期平均比。1.0超なら商い活況(資金流入)。"""
+    v = volume.dropna()
+    if len(v) < long:
+        return None
+    long_avg = float(v.iloc[-long:].mean())
+    if long_avg <= 0:
+        return None
+    return float(v.iloc[-short:].mean()) / long_avg
+
+
+def compute_technicals(
+    close: pd.Series,
+    volume: pd.Series | None = None,
+    benchmark: pd.Series | None = None,
+) -> dict[str, float | None]:
     """スコアリングに必要なテクニカル指標一式を返す。"""
     close = close.dropna()
     last = float(close.iloc[-1]) if len(close) else None
@@ -108,4 +132,7 @@ def compute_technicals(close: pd.Series) -> dict[str, float | None]:
         "volatility_1y": annualized_volatility(close),
         "max_drawdown_1y": max_drawdown(close),
         "dist_52w_high": distance_from_52w_high(close),
+        "rel_6m": relative_strength(close, benchmark, 6) if benchmark is not None else None,
+        "rel_12m": relative_strength(close, benchmark, 12) if benchmark is not None else None,
+        "volume_trend": volume_trend(volume) if volume is not None else None,
     }

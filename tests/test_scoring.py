@@ -24,6 +24,8 @@ STRONG_TECHNICALS = {
     "volatility_1y": 0.22,
     "max_drawdown_1y": -0.12,
     "dist_52w_high": -0.03,
+    "rel_12m": 0.15,
+    "volume_trend": 1.15,
 }
 
 WEAK_TECHNICALS = {
@@ -40,6 +42,8 @@ WEAK_TECHNICALS = {
     "volatility_1y": 0.45,
     "max_drawdown_1y": -0.35,
     "dist_52w_high": -0.30,
+    "rel_12m": -0.20,
+    "volume_trend": 0.80,
 }
 
 GOOD_FUNDAMENTALS = {
@@ -49,6 +53,9 @@ GOOD_FUNDAMENTALS = {
     "revenue_growth": 0.10,
     "earnings_growth": 0.15,
     "dividend_yield": 0.03,
+    "debt_to_equity": 40.0,
+    "fcf_yield": 0.06,
+    "target_price": 1400.0,  # close 1100 → +27%の上値余地
 }
 
 BAD_FUNDAMENTALS = {
@@ -58,6 +65,9 @@ BAD_FUNDAMENTALS = {
     "revenue_growth": -0.05,
     "earnings_growth": -0.20,
     "dividend_yield": 0.0,
+    "debt_to_equity": 250.0,
+    "fcf_yield": -0.01,
+    "target_price": 700.0,  # close 800 → 目標株価割れ
 }
 
 

@@ -70,12 +70,35 @@ def _stock_card(a: StockAnalysis, rank: int) -> str:
       <table class="metrics">
         <tr><td>株価</td><td>{_fmt_num(a.price, "円")}</td><td>RSI(14)</td><td>{_fmt_num(t.get("rsi14"))}</td></tr>
         <tr><td>6ヶ月</td><td>{_fmt_pct(t.get("mom_6m"))}</td><td>12ヶ月</td><td>{_fmt_pct(t.get("mom_12m"))}</td></tr>
-        <tr><td>PER</td><td>{_fmt_num(f.get("per"), "倍")}</td><td>ROE</td><td>{_fmt_pct(f.get("roe"), signed=False)}</td></tr>
+        <tr><td>対日経12ヶ月</td><td>{_fmt_pct(t.get("rel_12m"))}</td><td>出来高傾向</td><td>{_fmt_num(t.get("volume_trend"), "倍")}</td></tr>
+        <tr><td>PER</td><td>{_fmt_num(f.get("per"), "倍")}</td><td>PBR</td><td>{_fmt_num(f.get("pbr"), "倍")}</td></tr>
+        <tr><td>ROE</td><td>{_fmt_pct(f.get("roe"), signed=False)}</td><td>D/E</td><td>{_fmt_pct(f.get("debt_to_equity") / 100 if f.get("debt_to_equity") is not None else None, signed=False)}</td></tr>
+        <tr><td>FCF利回り</td><td>{_fmt_pct(f.get("fcf_yield"), signed=False)}</td><td>目標株価乖離</td><td>{_fmt_pct(f.get("target_upside"))}</td></tr>
         <tr><td>配当利回り</td><td>{_fmt_pct(f.get("dividend_yield"), signed=False)}</td><td>年率ボラ</td><td>{_fmt_pct(t.get("volatility_1y"), signed=False)}</td></tr>
       </table>
       <ul class="reasons">{reasons}</ul>
       {cautions_html}
     </div>"""
+
+
+def sector_summary(analyses: list[StockAnalysis]) -> list[dict]:
+    """セクターごとの地合い(平均スコア・平均モメンタム・買い候補数)をスコア降順で返す。"""
+    by_sector: dict[str, list[StockAnalysis]] = {}
+    for a in analyses:
+        by_sector.setdefault(a.sector, []).append(a)
+    rows = []
+    for sector, items in by_sector.items():
+        moms = [a.technicals.get("mom_12m") for a in items if a.technicals.get("mom_12m") is not None]
+        rows.append(
+            {
+                "sector": sector,
+                "count": len(items),
+                "avg_score": sum(a.composite_score for a in items) / len(items),
+                "avg_mom_12m": sum(moms) / len(moms) if moms else None,
+                "buy_count": sum(1 for a in items if a.signal in (SIGNAL_BUY_DIP, SIGNAL_BUY_TREND)),
+            }
+        )
+    return sorted(rows, key=lambda r: r["avg_score"], reverse=True)
 
 
 def build_html(analyses: list[StockAnalysis], top_n: int = 3, demo: bool = False) -> str:
@@ -101,6 +124,15 @@ def build_html(analyses: list[StockAnalysis], top_n: int = 3, demo: bool = False
         if picks
         else "<p>本日は買い候補シグナルの銘柄がありません。押し目や地合いの改善を待ちましょう。</p>"
     )
+
+    heat_rows = "".join(
+        f"<tr><td>{escape(r['sector'])}</td><td class='num'>{r['avg_score']:.0f}</td>"
+        f"<td class='num'>{_fmt_pct(r['avg_mom_12m'])}</td>"
+        f"<td class='num'>{r['buy_count']}/{r['count']}</td></tr>"
+        for r in sector_summary(analyses)
+    )
+    heat_html = f"""<table class="picks"><thead><tr><th>セクター</th><th>平均スコア</th><th>平均12ヶ月リターン</th><th>買い候補数</th></tr></thead>
+    <tbody>{heat_rows}</tbody></table>"""
 
     sector_sections = ""
     for sector, items in sectors.items():
@@ -171,6 +203,8 @@ def build_html(analyses: list[StockAnalysis], top_n: int = 3, demo: bool = False
   {demo_banner}
   <h2>本日の買い候補</h2>
   {picks_html}
+  <h2>セクター別の地合い</h2>
+  {heat_html}
   {sector_sections}
   <div class="disclaimer">{DISCLAIMER}</div>
 </div>

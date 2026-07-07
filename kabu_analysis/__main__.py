@@ -41,25 +41,29 @@ def main(argv: list[str] | None = None) -> int:
 
     tickers = [s.ticker for s in stocks]
     if args.demo:
-        from .demo import generate_fundamentals, generate_price_history
+        from .demo import generate_benchmark, generate_fundamentals, generate_price_history
 
         prices = {t: generate_price_history(t) for t in tickers}
+        benchmark = generate_benchmark()
         fundamentals = {t: generate_fundamentals(t) for t in tickers}
     else:
-        from .data import fetch_fundamentals, fetch_price_history
+        from .data import fetch_benchmark, fetch_fundamentals, fetch_price_history
 
         prices = fetch_price_history(tickers)
         if not prices:
             logger.error("株価データを1件も取得できませんでした。ネットワークを確認してください。")
             return 1
+        benchmark = fetch_benchmark()
+        if benchmark is None:
+            logger.warning("ベンチマーク取得失敗のため、対市場相対力は中立扱いで継続します。")
         fundamentals = fetch_fundamentals(list(prices.keys()))
 
     analyses = []
     for stock in stocks:
-        close = prices.get(stock.ticker)
-        if close is None:
+        hist = prices.get(stock.ticker)
+        if hist is None:
             continue
-        technicals = compute_technicals(close)
+        technicals = compute_technicals(hist["Close"], volume=hist.get("Volume"), benchmark=benchmark)
         analyses.append(
             analyze_stock(stock.ticker, stock.name, stock.sector, technicals, fundamentals.get(stock.ticker, {}))
         )
