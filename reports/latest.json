@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T12:19:33",
+  "generated_at": "2026-09-21T14:26:38",
   "buy_candidates": [
     {
       "ticker": "8750.T",
@@ -22,7 +22,7 @@
         "営業利益率 16.7%と収益性が高い",
         "増収率 +28.0%と成長継続",
         "増益率 +278.3%",
-        "配当利回り 3.73%",
+        "配当利回り 3.76%",
         "PER 15.8倍と割高感なし",
         "D/E 30%と財務健全",
         "過熱感のない上昇トレンド継続中"
@@ -73,7 +73,7 @@
         "営業利益率 31.7%と収益性が高い",
         "増収率 +17.0%と成長継続",
         "増益率 +44.6%",
-        "配当利回り 3.93%",
+        "配当利回り 3.95%",
         "PER 20.5倍と割高感なし",
         "D/E 38%と財務健全",
         "年率ボラティリティ 23%と値動きが安定",
@@ -101,7 +101,7 @@
         "営業利益率 30.1%と収益性が高い",
         "増収率 +57.2%と成長継続",
         "増益率 +82.6%",
-        "配当利回り 3.83%",
+        "配当利回り 3.79%",
         "PER 14.9倍と割高感なし",
         "RSI 54で過熱感なく、押し目の買い場"
       ],
@@ -117,7 +117,7 @@
       "price": 6146.0,
       "composite_score": 77.1,
       "trend_score": 74.9,
-      "fundamental_score": 83.9,
+      "fundamental_score": 84.0,
       "risk_score": 67.6,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -140,9 +140,9 @@
       "name": "ENEOS HD",
       "sector": "エネルギー・公益",
       "price": 1431.5,
-      "composite_score": 76.5,
+      "composite_score": 76.6,
       "trend_score": 83.8,
-      "fundamental_score": 79.3,
+      "fundamental_score": 79.4,
       "risk_score": 56.4,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -167,9 +167,9 @@
       "name": "SOMPO HD",
       "sector": "金融(証券・保険)",
       "price": 6891.0,
-      "composite_score": 75.6,
+      "composite_score": 75.7,
       "trend_score": 72.8,
-      "fundamental_score": 78.9,
+      "fundamental_score": 79.3,
       "risk_score": 74.6,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -193,7 +193,7 @@
       "price": 2737.0,
       "composite_score": 74.9,
       "trend_score": 80.0,
-      "fundamental_score": 77.2,
+      "fundamental_score": 77.3,
       "risk_score": 60.2,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -215,9 +215,9 @@
       "name": "三菱UFJ FG",
       "sector": "銀行",
       "price": 3620.0,
-      "composite_score": 74.1,
+      "composite_score": 74.2,
       "trend_score": 74.1,
-      "fundamental_score": 75.9,
+      "fundamental_score": 76.0,
       "risk_score": 70.7,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -241,7 +241,7 @@
       "price": 8495.0,
       "composite_score": 73.8,
       "trend_score": 83.8,
-      "fundamental_score": 78.6,
+      "fundamental_score": 78.7,
       "risk_score": 44.2,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -254,7 +254,7 @@
         "営業利益率 46.7%と収益性が高い",
         "増収率 +35.0%と成長継続",
         "増益率 +49.7%",
-        "PER 15.1倍と割高感なし",
+        "PER 15.2倍と割高感なし",
         "RSI 49で過熱感なく、押し目の買い場"
       ],
       "cautions": []
@@ -291,7 +291,7 @@
       "price": 6830.0,
       "composite_score": 72.9,
       "trend_score": 77.3,
-      "fundamental_score": 73.4,
+      "fundamental_score": 73.5,
       "risk_score": 63.1,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -338,7 +338,7 @@
       "price": 1796.0,
       "composite_score": 71.4,
       "trend_score": 80.5,
-      "fundamental_score": 71.8,
+      "fundamental_score": 72.0,
       "risk_score": 52.1,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -377,8 +377,7 @@
       ],
       "cautions": [
         "ROE 2.4%と資本効率は低め",
-        "PER 72.4倍と割高(期待先行に注意)",
-        "株価がアナリスト目標を上回っている(織り込み済みの可能性)"
+        "PER 72.5倍と割高(期待先行に注意)"
       ]
     },
     {
@@ -399,7 +398,7 @@
         "営業利益率 30.8%と収益性が高い",
         "増収率 +31.2%と成長継続",
         "増益率 +42.0%",
-        "配当利回り 3.21%",
+        "配当利回り 3.23%",
         "PER 11.9倍と割高感なし",
         "RSI 45で過熱感なく、押し目の買い場"
       ],
@@ -414,7 +413,7 @@
       "price": 2848.5,
       "composite_score": 68.6,
       "trend_score": 40.9,
-      "fundamental_score": 86.8,
+      "fundamental_score": 86.9,
       "risk_score": 87.4,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -439,7 +438,7 @@
       "price": 7240.0,
       "composite_score": 68.6,
       "trend_score": 75.6,
-      "fundamental_score": 68.8,
+      "fundamental_score": 69.0,
       "risk_score": 54.0,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -472,7 +471,7 @@
         "営業利益率 28.9%と収益性が高い",
         "増収率 +26.7%と成長継続",
         "増益率 +107.2%",
-        "配当利回り 3.38%",
+        "配当利回り 3.36%",
         "PER 14.7倍と割高感なし",
         "D/E 30%と財務健全",
         "FCF利回り 9.0%と現金創出力が高い",
@@ -487,7 +486,7 @@
       "price": 2451.5,
       "composite_score": 68.3,
       "trend_score": 76.9,
-      "fundamental_score": 70.1,
+      "fundamental_score": 70.2,
       "risk_score": 47.5,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -499,7 +498,7 @@
         "営業利益率 40.4%と収益性が高い",
         "増収率 +15.8%と成長継続",
         "増益率 +16.3%",
-        "PER 21.5倍と割高感なし",
+        "PER 21.6倍と割高感なし",
         "RSI 50で過熱感なく、押し目の買い場"
       ],
       "cautions": []
@@ -521,32 +520,9 @@
         "52週高値圏で推移(高値更新の期待)",
         "MACDが買い優勢",
         "営業利益率 64.9%と収益性が高い",
-        "配当利回り 3.46%",
+        "配当利回り 3.49%",
         "D/E 16%と財務健全",
         "RSI 52で過熱感なく、押し目の買い場"
-      ],
-      "cautions": []
-    },
-    {
-      "ticker": "6971.T",
-      "name": "京セラ",
-      "sector": "電機・精密",
-      "price": 3637.0,
-      "composite_score": 66.5,
-      "trend_score": 76.6,
-      "fundamental_score": 56.6,
-      "risk_score": 66.1,
-      "signal": "買い候補(押し目)",
-      "reasons": [
-        "株価が200日線の上で推移(長期トレンドは維持)",
-        "200日移動平均線が右肩上がり",
-        "直近12ヶ月リターン +84%と中期モメンタム良好",
-        "MACDが買い優勢",
-        "日経平均を12ヶ月で+33%上回る相対的な強さ",
-        "増収率 +9.9%と成長継続",
-        "増益率 +75.2%",
-        "D/E 10%と財務健全",
-        "RSI 54で過熱感なく、押し目の買い場"
       ],
       "cautions": []
     },
@@ -555,9 +531,9 @@
       "name": "大塚HD",
       "sector": "医薬品・ヘルスケア",
       "price": 11120.0,
-      "composite_score": 66.5,
+      "composite_score": 66.6,
       "trend_score": 41.3,
-      "fundamental_score": 88.2,
+      "fundamental_score": 88.3,
       "risk_score": 73.7,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -576,13 +552,36 @@
       "cautions": []
     },
     {
+      "ticker": "6971.T",
+      "name": "京セラ",
+      "sector": "電機・精密",
+      "price": 3637.0,
+      "composite_score": 66.5,
+      "trend_score": 76.6,
+      "fundamental_score": 56.5,
+      "risk_score": 66.1,
+      "signal": "買い候補(押し目)",
+      "reasons": [
+        "株価が200日線の上で推移(長期トレンドは維持)",
+        "200日移動平均線が右肩上がり",
+        "直近12ヶ月リターン +84%と中期モメンタム良好",
+        "MACDが買い優勢",
+        "日経平均を12ヶ月で+33%上回る相対的な強さ",
+        "増収率 +9.9%と成長継続",
+        "増益率 +75.2%",
+        "D/E 10%と財務健全",
+        "RSI 54で過熱感なく、押し目の買い場"
+      ],
+      "cautions": []
+    },
+    {
       "ticker": "4689.T",
       "name": "LINEヤフー",
       "sector": "情報通信・サービス",
       "price": 536.7999877929688,
       "composite_score": 64.8,
       "trend_score": 59.2,
-      "fundamental_score": 75.1,
+      "fundamental_score": 75.3,
       "risk_score": 55.2,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -616,13 +615,13 @@
         "営業利益率 51.7%と収益性が高い",
         "増収率 +39.3%と成長継続",
         "増益率 +95.3%",
-        "配当利回り 20.00%",
+        "配当利回り 19.00%",
         "D/E 10%と財務健全",
         "アナリスト目標株価まで+31%の余地",
         "RSI 48で過熱感なく、押し目の買い場"
       ],
       "cautions": [
-        "PER 62.0倍と割高(期待先行に注意)",
+        "PER 62.1倍と割高(期待先行に注意)",
         "年率ボラティリティ 74%と値動きが荒い"
       ]
     },
@@ -633,7 +632,7 @@
       "price": 1655.0,
       "composite_score": 62.6,
       "trend_score": 45.0,
-      "fundamental_score": 75.1,
+      "fundamental_score": 75.2,
       "risk_score": 72.6,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -678,9 +677,9 @@
       "name": "関西電力",
       "sector": "エネルギー・公益",
       "price": 2905.5,
-      "composite_score": 61.6,
+      "composite_score": 61.7,
       "trend_score": 53.2,
-      "fundamental_score": 67.3,
+      "fundamental_score": 67.5,
       "risk_score": 67.1,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -701,9 +700,9 @@
       "name": "三菱ケミカルG",
       "sector": "素材・化学",
       "price": 1189.0,
-      "composite_score": 61.1,
+      "composite_score": 61.2,
       "trend_score": 64.8,
-      "fundamental_score": 65.0,
+      "fundamental_score": 65.1,
       "risk_score": 46.3,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -726,7 +725,7 @@
       "price": 2749.5,
       "composite_score": 60.6,
       "trend_score": 52.6,
-      "fundamental_score": 78.6,
+      "fundamental_score": 78.7,
       "risk_score": 40.5,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -752,7 +751,7 @@
       "price": 4947.0,
       "composite_score": 60.4,
       "trend_score": 54.1,
-      "fundamental_score": 71.2,
+      "fundamental_score": 71.3,
       "risk_score": 51.3,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -772,9 +771,9 @@
       "name": "三菱マテリアル",
       "sector": "素材・化学",
       "price": 5194.0,
-      "composite_score": 60.3,
+      "composite_score": 60.2,
       "trend_score": 73.3,
-      "fundamental_score": 73.7,
+      "fundamental_score": 73.4,
       "risk_score": 7.8,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -800,7 +799,7 @@
       "price": 3309.0,
       "composite_score": 59.2,
       "trend_score": 67.6,
-      "fundamental_score": 79.1,
+      "fundamental_score": 79.0,
       "risk_score": 2.6,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -850,9 +849,9 @@
       "name": "住友金属鉱山",
       "sector": "素材・化学",
       "price": 9610.0,
-      "composite_score": 58.6,
+      "composite_score": 58.5,
       "trend_score": 60.9,
-      "fundamental_score": 85.5,
+      "fundamental_score": 85.3,
       "risk_score": 0.0,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -882,7 +881,7 @@
       "price": 7012.0,
       "composite_score": 58.2,
       "trend_score": 51.6,
-      "fundamental_score": 71.5,
+      "fundamental_score": 71.6,
       "risk_score": 44.8,
       "signal": "買い候補(押し目)",
       "reasons": [
@@ -892,7 +891,7 @@
         "ROE 11.6%と資本効率が高い",
         "営業利益率 14.5%と収益性が高い",
         "増収率 +14.7%と成長継続",
-        "PER 17.0倍と割高感なし",
+        "PER 16.9倍と割高感なし",
         "D/E 47%と財務健全",
         "RSI 42で過熱感なく、押し目の買い場"
       ],
@@ -923,35 +922,6 @@
       "cautions": []
     },
     {
-      "ticker": "8035.T",
-      "name": "東京エレクトロン",
-      "sector": "AI・半導体・データセンター",
-      "price": 53110.0,
-      "composite_score": 55.5,
-      "trend_score": 67.3,
-      "fundamental_score": 68.6,
-      "risk_score": 5.8,
-      "signal": "買い候補(押し目)",
-      "reasons": [
-        "株価が200日線の上で推移(長期トレンドは維持)",
-        "200日移動平均線が右肩上がり",
-        "直近12ヶ月リターン +168%と中期モメンタム良好",
-        "MACDが買い優勢",
-        "日経平均を12ヶ月で+116%上回る相対的な強さ",
-        "ROE 30.9%と資本効率が高い",
-        "営業利益率 28.9%と収益性が高い",
-        "増収率 +33.3%と成長継続",
-        "増益率 +40.4%",
-        "アナリスト目標株価まで+45%の余地",
-        "RSI 45で過熱感なく、押し目の買い場"
-      ],
-      "cautions": [
-        "PER 42.5倍と割高(期待先行に注意)",
-        "年率ボラティリティ 56%と値動きが荒い",
-        "直近1年の最大下落率 -37%"
-      ]
-    },
-    {
       "ticker": "2768.T",
       "name": "双日",
       "sector": "商社・卸売",
@@ -968,12 +938,41 @@
         "ROE 10.7%と資本効率が高い",
         "増収率 +39.3%と成長継続",
         "増益率 +44.3%",
-        "配当利回り 3.06%",
+        "配当利回り 3.07%",
         "PER 11.9倍と割高感なし",
         "25日移動平均線近辺まで調整しており、エントリーしやすい水準"
       ],
       "cautions": [
         "フリーキャッシュフローがマイナス"
+      ]
+    },
+    {
+      "ticker": "8035.T",
+      "name": "東京エレクトロン",
+      "sector": "AI・半導体・データセンター",
+      "price": 53110.0,
+      "composite_score": 55.4,
+      "trend_score": 67.3,
+      "fundamental_score": 68.4,
+      "risk_score": 5.8,
+      "signal": "買い候補(押し目)",
+      "reasons": [
+        "株価が200日線の上で推移(長期トレンドは維持)",
+        "200日移動平均線が右肩上がり",
+        "直近12ヶ月リターン +168%と中期モメンタム良好",
+        "MACDが買い優勢",
+        "日経平均を12ヶ月で+116%上回る相対的な強さ",
+        "ROE 30.9%と資本効率が高い",
+        "営業利益率 28.9%と収益性が高い",
+        "増収率 +33.3%と成長継続",
+        "増益率 +40.4%",
+        "アナリスト目標株価まで+45%の余地",
+        "RSI 45で過熱感なく、押し目の買い場"
+      ],
+      "cautions": [
+        "PER 42.4倍と割高(期待先行に注意)",
+        "年率ボラティリティ 56%と値動きが荒い",
+        "直近1年の最大下落率 -37%"
       ]
     },
     {
@@ -983,7 +982,7 @@
       "price": 3060.0,
       "composite_score": 76.4,
       "trend_score": 63.9,
-      "fundamental_score": 79.8,
+      "fundamental_score": 80.0,
       "risk_score": 94.5,
       "signal": "買い候補(トレンド)",
       "reasons": [
@@ -1020,7 +1019,7 @@
         "ROE 16.7%と資本効率が高い",
         "営業利益率 16.5%と収益性が高い",
         "増収率 +9.4%と成長継続",
-        "配当利回り 3.50%",
+        "配当利回り 3.55%",
         "PER 22.0倍と割高感なし",
         "FCF利回り 10.6%と現金創出力が高い",
         "年率ボラティリティ 17%と値動きが安定",
@@ -1045,7 +1044,7 @@
         "52週高値圏で推移(高値更新の期待)",
         "増収率 +21.1%と成長継続",
         "増益率 +37.4%",
-        "配当利回り 3.17%",
+        "配当利回り 3.20%",
         "PER 14.8倍と割高感なし",
         "D/E 43%と財務健全",
         "強いトレンド継続中(打診買い・分割エントリー向き)"
@@ -1070,7 +1069,7 @@
         "直近12ヶ月リターン +58%と中期モメンタム良好",
         "52週高値圏で推移(高値更新の期待)",
         "増収率 +17.1%と成長継続",
-        "配当利回り 3.38%",
+        "配当利回り 3.43%",
         "PER 16.6倍と割高感なし",
         "D/E 13%と財務健全",
         "強いトレンド継続中(打診買い・分割エントリー向き)"
@@ -1085,9 +1084,9 @@
       "name": "伊藤忠商事",
       "sector": "商社・卸売",
       "price": 2306.5,
-      "composite_score": 68.9,
+      "composite_score": 69.0,
       "trend_score": 70.7,
-      "fundamental_score": 64.2,
+      "fundamental_score": 64.3,
       "risk_score": 74.7,
       "signal": "買い候補(トレンド)",
       "reasons": [
@@ -1121,8 +1120,8 @@
         "ROE 10.7%と資本効率が高い",
         "営業利益率 12.5%と収益性が高い",
         "増収率 +10.9%と成長継続",
-        "配当利回り 3.00%",
-        "PER 14.0倍と割高感なし",
+        "配当利回り 3.05%",
+        "PER 14.1倍と割高感なし",
         "FCF利回り 78.4%と現金創出力が高い",
         "年率ボラティリティ 16%と値動きが安定",
         "強いトレンド継続中(打診買い・分割エントリー向き)"
@@ -1177,7 +1176,7 @@
         "MACDが買い優勢",
         "営業利益率 16.4%と収益性が高い",
         "増収率 +10.2%と成長継続",
-        "配当利回り 3.43%",
+        "配当利回り 3.42%",
         "FCF利回り 5.7%と現金創出力が高い",
         "年率ボラティリティ 22%と値動きが安定",
         "強いトレンド継続中(打診買い・分割エントリー向き)"
@@ -1194,7 +1193,7 @@
       "price": 8200.0,
       "composite_score": 60.1,
       "trend_score": 73.2,
-      "fundamental_score": 45.8,
+      "fundamental_score": 45.9,
       "risk_score": 62.5,
       "signal": "買い候補(トレンド)",
       "reasons": [
@@ -1216,9 +1215,9 @@
       "name": "大阪ガス",
       "sector": "エネルギー・公益",
       "price": 6073.0,
-      "composite_score": 56.6,
+      "composite_score": 56.7,
       "trend_score": 53.1,
-      "fundamental_score": 52.0,
+      "fundamental_score": 52.1,
       "risk_score": 72.8,
       "signal": "買い候補(トレンド)",
       "reasons": [
@@ -1244,7 +1243,7 @@
         "price": 3060.0,
         "composite_score": 76.4,
         "trend_score": 63.9,
-        "fundamental_score": 79.8,
+        "fundamental_score": 80.0,
         "risk_score": 94.5,
         "signal": "買い候補(トレンド)",
         "reasons": [
@@ -1281,7 +1280,7 @@
           "ROE 16.7%と資本効率が高い",
           "営業利益率 16.5%と収益性が高い",
           "増収率 +9.4%と成長継続",
-          "配当利回り 3.50%",
+          "配当利回り 3.55%",
           "PER 22.0倍と割高感なし",
           "FCF利回り 10.6%と現金創出力が高い",
           "年率ボラティリティ 17%と値動きが安定",
@@ -1307,8 +1306,8 @@
           "ROE 10.7%と資本効率が高い",
           "営業利益率 12.5%と収益性が高い",
           "増収率 +10.9%と成長継続",
-          "配当利回り 3.00%",
-          "PER 14.0倍と割高感なし",
+          "配当利回り 3.05%",
+          "PER 14.1倍と割高感なし",
           "FCF利回り 78.4%と現金創出力が高い",
           "年率ボラティリティ 16%と値動きが安定",
           "強いトレンド継続中(打診買い・分割エントリー向き)"
@@ -1336,13 +1335,13 @@
           "営業利益率 51.7%と収益性が高い",
           "増収率 +39.3%と成長継続",
           "増益率 +95.3%",
-          "配当利回り 20.00%",
+          "配当利回り 19.00%",
           "D/E 10%と財務健全",
           "アナリスト目標株価まで+31%の余地",
           "RSI 48で過熱感なく、押し目の買い場"
         ],
         "cautions": [
-          "PER 62.0倍と割高(期待先行に注意)",
+          "PER 62.1倍と割高(期待先行に注意)",
           "年率ボラティリティ 74%と値動きが荒い"
         ]
       },
@@ -1353,7 +1352,7 @@
         "price": 3309.0,
         "composite_score": 59.2,
         "trend_score": 67.6,
-        "fundamental_score": 79.1,
+        "fundamental_score": 79.0,
         "risk_score": 2.6,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -1381,9 +1380,9 @@
         "name": "東京エレクトロン",
         "sector": "AI・半導体・データセンター",
         "price": 53110.0,
-        "composite_score": 55.5,
+        "composite_score": 55.4,
         "trend_score": 67.3,
-        "fundamental_score": 68.6,
+        "fundamental_score": 68.4,
         "risk_score": 5.8,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -1400,7 +1399,7 @@
           "RSI 45で過熱感なく、押し目の買い場"
         ],
         "cautions": [
-          "PER 42.5倍と割高(期待先行に注意)",
+          "PER 42.4倍と割高(期待先行に注意)",
           "年率ボラティリティ 56%と値動きが荒い",
           "直近1年の最大下落率 -37%"
         ]
@@ -1414,7 +1413,7 @@
         "price": 3637.0,
         "composite_score": 66.5,
         "trend_score": 76.6,
-        "fundamental_score": 56.6,
+        "fundamental_score": 56.5,
         "risk_score": 66.1,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -1459,7 +1458,7 @@
         "price": 7763.0,
         "composite_score": 53.3,
         "trend_score": 68.0,
-        "fundamental_score": 65.2,
+        "fundamental_score": 65.1,
         "risk_score": 0.0,
         "signal": "監視",
         "reasons": [
@@ -1473,11 +1472,11 @@
           "増収率 +20.7%と成長継続",
           "増益率 +66.5%",
           "D/E 2%と財務健全",
-          "アナリスト目標株価まで+31%の余地",
+          "アナリスト目標株価まで+30%の余地",
           "総合スコアが基準未達(トレンドかファンダのどちらかが弱い)"
         ],
         "cautions": [
-          "PER 60.7倍と割高(期待先行に注意)",
+          "PER 61.0倍と割高(期待先行に注意)",
           "年率ボラティリティ 71%と値動きが荒い",
           "直近1年の最大下落率 -49%"
         ]
@@ -1501,7 +1500,7 @@
           "営業利益率 12.8%と収益性が高い",
           "増収率 +14.2%と成長継続",
           "増益率 +210.1%",
-          "配当利回り 3.43%",
+          "配当利回り 3.49%",
           "PER 18.9倍と割高感なし",
           "D/E 23%と財務健全",
           "FCF利回り 7.4%と現金創出力が高い",
@@ -1517,7 +1516,7 @@
         "price": 2028.0,
         "composite_score": 53.5,
         "trend_score": 15.7,
-        "fundamental_score": 93.9,
+        "fundamental_score": 94.0,
         "risk_score": 48.1,
         "signal": "見送り",
         "reasons": [
@@ -1537,9 +1536,9 @@
         "name": "ホンダ",
         "sector": "自動車・輸送機",
         "price": 1689.0,
-        "composite_score": 50.7,
+        "composite_score": 51.2,
         "trend_score": 43.3,
-        "fundamental_score": 54.4,
+        "fundamental_score": 55.8,
         "risk_score": 57.8,
         "signal": "監視",
         "reasons": [
@@ -1548,7 +1547,7 @@
           "52週高値圏で推移(高値更新の期待)",
           "増収率 +13.5%と成長継続",
           "増益率 +147.5%",
-          "配当利回り 4.10%",
+          "配当利回り 4.14%",
           "総合スコアが基準未達(トレンドかファンダのどちらかが弱い)"
         ],
         "cautions": [
@@ -1564,7 +1563,7 @@
         "price": 2749.5,
         "composite_score": 60.6,
         "trend_score": 52.6,
-        "fundamental_score": 78.6,
+        "fundamental_score": 78.7,
         "risk_score": 40.5,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -1590,7 +1589,7 @@
         "price": 7012.0,
         "composite_score": 58.2,
         "trend_score": 51.6,
-        "fundamental_score": 71.5,
+        "fundamental_score": 71.6,
         "risk_score": 44.8,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -1600,7 +1599,7 @@
           "ROE 11.6%と資本効率が高い",
           "営業利益率 14.5%と収益性が高い",
           "増収率 +14.7%と成長継続",
-          "PER 17.0倍と割高感なし",
+          "PER 16.9倍と割高感なし",
           "D/E 47%と財務健全",
           "RSI 42で過熱感なく、押し目の買い場"
         ],
@@ -1624,9 +1623,9 @@
           "MACDが買い優勢",
           "増収率 +29.7%と成長継続",
           "増益率 +108.2%",
-          "PER 24.4倍と割高感なし",
+          "PER 24.5倍と割高感なし",
           "D/E 15%と財務健全",
-          "アナリスト目標株価まで+32%の余地",
+          "アナリスト目標株価まで+33%の余地",
           "上昇トレンドが確認できない(下落・横ばい局面)"
         ],
         "cautions": []
@@ -1640,7 +1639,7 @@
         "price": 2737.0,
         "composite_score": 74.9,
         "trend_score": 80.0,
-        "fundamental_score": 77.2,
+        "fundamental_score": 77.3,
         "risk_score": 60.2,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -1662,9 +1661,9 @@
         "name": "三菱UFJ FG",
         "sector": "銀行",
         "price": 3620.0,
-        "composite_score": 74.1,
+        "composite_score": 74.2,
         "trend_score": 74.1,
-        "fundamental_score": 75.9,
+        "fundamental_score": 76.0,
         "risk_score": 70.7,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -1688,7 +1687,7 @@
         "price": 8495.0,
         "composite_score": 73.8,
         "trend_score": 83.8,
-        "fundamental_score": 78.6,
+        "fundamental_score": 78.7,
         "risk_score": 44.2,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -1701,7 +1700,7 @@
           "営業利益率 46.7%と収益性が高い",
           "増収率 +35.0%と成長継続",
           "増益率 +49.7%",
-          "PER 15.1倍と割高感なし",
+          "PER 15.2倍と割高感なし",
           "RSI 49で過熱感なく、押し目の買い場"
         ],
         "cautions": []
@@ -1729,7 +1728,7 @@
           "営業利益率 16.7%と収益性が高い",
           "増収率 +28.0%と成長継続",
           "増益率 +278.3%",
-          "配当利回り 3.73%",
+          "配当利回り 3.76%",
           "PER 15.8倍と割高感なし",
           "D/E 30%と財務健全",
           "過熱感のない上昇トレンド継続中"
@@ -1781,7 +1780,7 @@
           "営業利益率 30.1%と収益性が高い",
           "増収率 +57.2%と成長継続",
           "増益率 +82.6%",
-          "配当利回り 3.83%",
+          "配当利回り 3.79%",
           "PER 14.9倍と割高感なし",
           "RSI 54で過熱感なく、押し目の買い場"
         ],
@@ -1823,7 +1822,7 @@
         "price": 1796.0,
         "composite_score": 71.4,
         "trend_score": 80.5,
-        "fundamental_score": 71.8,
+        "fundamental_score": 72.0,
         "risk_score": 52.1,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -1844,9 +1843,9 @@
         "name": "伊藤忠商事",
         "sector": "商社・卸売",
         "price": 2306.5,
-        "composite_score": 68.9,
+        "composite_score": 69.0,
         "trend_score": 70.7,
-        "fundamental_score": 64.2,
+        "fundamental_score": 64.3,
         "risk_score": 74.7,
         "signal": "買い候補(トレンド)",
         "reasons": [
@@ -1905,7 +1904,7 @@
           "MACDが買い優勢",
           "ROE 51.8%と資本効率が高い",
           "営業利益率 31.9%と収益性が高い",
-          "配当利回り 3.45%",
+          "配当利回り 3.44%",
           "PER 21.5倍と割高感なし",
           "D/E 20%と財務健全",
           "上昇トレンドが確認できない(下落・横ばい局面)"
@@ -1955,7 +1954,7 @@
           "営業利益率 28.9%と収益性が高い",
           "増収率 +26.7%と成長継続",
           "増益率 +107.2%",
-          "配当利回り 3.38%",
+          "配当利回り 3.36%",
           "PER 14.7倍と割高感なし",
           "D/E 30%と財務健全",
           "FCF利回り 9.0%と現金創出力が高い",
@@ -1968,9 +1967,9 @@
         "name": "大塚HD",
         "sector": "医薬品・ヘルスケア",
         "price": 11120.0,
-        "composite_score": 66.5,
+        "composite_score": 66.6,
         "trend_score": 41.3,
-        "fundamental_score": 88.2,
+        "fundamental_score": 88.3,
         "risk_score": 73.7,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -2006,7 +2005,7 @@
           "MACDが買い優勢",
           "営業利益率 16.4%と収益性が高い",
           "増収率 +10.2%と成長継続",
-          "配当利回り 3.43%",
+          "配当利回り 3.42%",
           "FCF利回り 5.7%と現金創出力が高い",
           "年率ボラティリティ 22%と値動きが安定",
           "強いトレンド継続中(打診買い・分割エントリー向き)"
@@ -2037,7 +2036,7 @@
           "営業利益率 31.7%と収益性が高い",
           "増収率 +17.0%と成長継続",
           "増益率 +44.6%",
-          "配当利回り 3.93%",
+          "配当利回り 3.95%",
           "PER 20.5倍と割高感なし",
           "D/E 38%と財務健全",
           "年率ボラティリティ 23%と値動きが安定",
@@ -2052,7 +2051,7 @@
         "price": 2848.5,
         "composite_score": 68.6,
         "trend_score": 40.9,
-        "fundamental_score": 86.8,
+        "fundamental_score": 86.9,
         "risk_score": 87.4,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -2077,7 +2076,7 @@
         "price": 3478.0,
         "composite_score": 65.1,
         "trend_score": 37.1,
-        "fundamental_score": 82.1,
+        "fundamental_score": 82.2,
         "risk_score": 86.9,
         "signal": "見送り",
         "reasons": [
@@ -2101,9 +2100,9 @@
         "name": "三菱ケミカルG",
         "sector": "素材・化学",
         "price": 1189.0,
-        "composite_score": 61.1,
+        "composite_score": 61.2,
         "trend_score": 64.8,
-        "fundamental_score": 65.0,
+        "fundamental_score": 65.1,
         "risk_score": 46.3,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -2124,9 +2123,9 @@
         "name": "三菱マテリアル",
         "sector": "素材・化学",
         "price": 5194.0,
-        "composite_score": 60.3,
+        "composite_score": 60.2,
         "trend_score": 73.3,
-        "fundamental_score": 73.7,
+        "fundamental_score": 73.4,
         "risk_score": 7.8,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -2174,9 +2173,9 @@
         "name": "ENEOS HD",
         "sector": "エネルギー・公益",
         "price": 1431.5,
-        "composite_score": 76.5,
+        "composite_score": 76.6,
         "trend_score": 83.8,
-        "fundamental_score": 79.3,
+        "fundamental_score": 79.4,
         "risk_score": 56.4,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -2201,9 +2200,9 @@
         "name": "関西電力",
         "sector": "エネルギー・公益",
         "price": 2905.5,
-        "composite_score": 61.6,
+        "composite_score": 61.7,
         "trend_score": 53.2,
-        "fundamental_score": 67.3,
+        "fundamental_score": 67.5,
         "risk_score": 67.1,
         "signal": "買い候補(押し目)",
         "reasons": [
@@ -2224,9 +2223,9 @@
         "name": "大阪ガス",
         "sector": "エネルギー・公益",
         "price": 6073.0,
-        "composite_score": 56.6,
+        "composite_score": 56.7,
         "trend_score": 53.1,
-        "fundamental_score": 52.0,
+        "fundamental_score": 52.1,
         "risk_score": 72.8,
         "signal": "買い候補(トレンド)",
         "reasons": [
@@ -2251,7 +2250,7 @@
         "price": 3613.0,
         "composite_score": 48.5,
         "trend_score": 21.4,
-        "fundamental_score": 81.1,
+        "fundamental_score": 81.2,
         "risk_score": 37.4,
         "signal": "見送り",
         "reasons": [
@@ -2280,7 +2279,7 @@
         "signal": "見送り",
         "reasons": [
           "ROE 12.3%と資本効率が高い",
-          "配当利回り 4.29%",
+          "配当利回り 4.36%",
           "PER 8.5倍と割高感なし",
           "年率ボラティリティ 19%と値動きが安定",
           "上昇トレンドが確認できない(下落・横ばい局面)"
@@ -2296,9 +2295,9 @@
         "name": "大和ハウス工業",
         "sector": "建設・不動産",
         "price": 4558.0,
-        "composite_score": 44.8,
+        "composite_score": 44.9,
         "trend_score": 7.2,
-        "fundamental_score": 67.6,
+        "fundamental_score": 67.7,
         "risk_score": 74.7,
         "signal": "見送り",
         "reasons": [
@@ -2329,7 +2328,7 @@
           "52週高値圏で推移(高値更新の期待)",
           "増収率 +21.1%と成長継続",
           "増益率 +37.4%",
-          "配当利回り 3.17%",
+          "配当利回り 3.20%",
           "PER 14.8倍と割高感なし",
           "D/E 43%と財務健全",
           "強いトレンド継続中(打診買い・分割エントリー向き)"
@@ -2354,7 +2353,7 @@
           "直近12ヶ月リターン +58%と中期モメンタム良好",
           "52週高値圏で推移(高値更新の期待)",
           "増収率 +17.1%と成長継続",
-          "配当利回り 3.38%",
+          "配当利回り 3.43%",
           "PER 16.6倍と割高感なし",
           "D/E 13%と財務健全",
           "強いトレンド継続中(打診買い・分割エントリー向き)"
@@ -2387,8 +2386,7 @@
         ],
         "cautions": [
           "ROE 2.4%と資本効率は低め",
-          "PER 72.4倍と割高(期待先行に注意)",
-          "株価がアナリスト目標を上回っている(織り込み済みの可能性)"
+          "PER 72.5倍と割高(期待先行に注意)"
         ]
       }
     ]
